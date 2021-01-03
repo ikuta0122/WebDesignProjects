@@ -1,0 +1,11 @@
+/*
+	1.text-decoration:文本装饰
+	2.cursor:鼠标样式
+*/
+a {
+	text-decoration: none;
+}
+#baiduSpan {
+	text-decoration: underline;
+	cursor: pointer;
+}

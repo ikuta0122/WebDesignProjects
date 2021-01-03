@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<students>
+    <student>
+        <name>吴飞</name>
+        <college>java学院</college>
+        <telephone>12345678</telephone>
+        <notes>男,1982年生,硕士,现就读于南京邮电大学</notes>
+    </student>
+    <student>
+        <name>李雪</name>
+        <college>C++学院</college>
+        <telephone>87654321</telephone>
+        <notes>女,1987年生,硕士,现就读于南京大学</notes>
+    </student>
+    <student>
+        <name>JACK</name>
+        <college>PHP学院</college>
+        <telephone>66666666</telephone>
+        <notes>欧洲人</notes>
+    </student>
+    <student>
+        <name>LUCY</name>
+        <college>ANDROID学院</college>
+        <telephone>88888888</telephone>
+        <notes>美国人</notes>
+    </student>
+</students>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML页面嵌套中使用CSS样式的第二种方式-定义内部样式块对象</title>
+		<style type="text/css">
+			/*id选择器
+			1.语法格式:
+				#id属性的值 {
+					样式名:样式值;
+					样式名:样式值;
+					样式名:样式值;
+					......
+				}
+			*/
+			#usernameErrorMsg {
+				font-size: 12px;
+				color: red;
+			}
+
+			/*标签选择器
+			1.语法格式:
+				标签名 {
+					样式名:样式值;
+					样式名:样式值;
+					样式名:样式值;
+					......
+				}
+			2.标签选择器相比id选择器的作用范围更广
+			*/
+			div {
+				background-color: black;
+				border: 1px solid #FF0000;
+				width: 100px;
+				height: 100px;
+			}
+
+			/*类选择器
+			1.语法格式:
+				标签名 {
+					样式名:样式值;
+					样式名:样式值;
+					样式名:样式值;
+					......
+				}
+			2.类选择器的优点:跨标签设置样式
+			*/
+			.myclass {
+				font-size: 20px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			设置id="usernameErrorMsg"的样式:字体大小为12px,颜色为红色
+		-->
+		<span id="usernameErrorMsg">对不起,用户名不能为空</span>
+		<br /><br /><br />
+		<!--
+			设置div标签的样式:背景色为黑色,边框大小为1px,颜色为红色,样式为实线
+		-->
+		<div></div>
+		<div></div>
+		<div></div>
+		<br /><br /><br />
+		<!--
+			设置input标签和select标签的样式:字体大小为20px,颜色为红色
+		-->
+		<input type="text" class="myclass" />
+		<br /><br /><br />
+		<select class="myclass">
+			<option>专科</option>
+			<option>本科</option>
+		</select>
+	</body>
+</html>

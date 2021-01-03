@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-功能函数-show()和hide()</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			//隐藏DIV
+			function fun1(){
+				$("div").hide(3000);
+			}
+			//显示DIV
+			function fun2(){
+				$("div").show(3000);
+			}
+		</script>
+		<style type="text/css">
+			div {
+				background-color: green;
+				width: 200px;
+				height: 200px;
+				font-size: 30px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>我是一个div</div>
+		<input type="button" value="隐藏div" onclick="fun1()" />
+		<input type="button" value="显示div" onclick="fun2()" />
+	</body>
+</html>

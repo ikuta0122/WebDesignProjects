@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-HTML/01-HTML.iml" filepath="$PROJECT_DIR$/01-HTML/01-HTML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-CSS/02-CSS.iml" filepath="$PROJECT_DIR$/02-CSS/02-CSS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-JavaScript/03-JavaScript.iml" filepath="$PROJECT_DIR$/03-JavaScript/03-JavaScript.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-XML/04-XML.iml" filepath="$PROJECT_DIR$/04-XML/04-XML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-JSON/05-JSON.iml" filepath="$PROJECT_DIR$/05-JSON/05-JSON.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-JQuery/06-JQuery.iml" filepath="$PROJECT_DIR$/06-JQuery/06-JQuery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-AJAX-BMI/07-AJAX-BMI.iml" filepath="$PROJECT_DIR$/07-AJAX-BMI/07-AJAX-BMI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-AJAX-BMI-Local/07-AJAX-BMI-Local.iml" filepath="$PROJECT_DIR$/07-AJAX-BMI-Local/07-AJAX-BMI-Local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-AJAX-QueryInfo/07-AJAX-QueryInfo.iml" filepath="$PROJECT_DIR$/07-AJAX-QueryInfo/07-AJAX-QueryInfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-AJAX-QueryInfo-JSON/07-AJAX-QueryInfo-JSON.iml" filepath="$PROJECT_DIR$/07-AJAX-QueryInfo-JSON/07-AJAX-QueryInfo-JSON.iml" />
+    </modules>
+  </component>
+</project>

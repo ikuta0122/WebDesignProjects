@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HTML的表格-单元格合并</title>
+		<!--注意事项
+			1.row合并时,删除"下面的row"的单元格
+			2.col合并时,对删除单元格没有要求
+		-->
+	</head>
+	
+	<body>
+		<table border="1px" width="50%" align="center">
+			<tr align="center">
+				<td>a</td>
+				<td>b</td>
+				<td>c</td>
+			</tr>
+			<tr align="center">
+				<td>d</td>
+				<td>e</td>
+				<td rowspan="2">f</td>
+			</tr>
+			<tr align="center">
+				<td colspan="2">x</td>
+				<!--
+					<td>y</td>
+				-->
+				<!--
+					<td>z</td>
+				-->
+			</tr>
+		</table>
+	</body>
+</html>

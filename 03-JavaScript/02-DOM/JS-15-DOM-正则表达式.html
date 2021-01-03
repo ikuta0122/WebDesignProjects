@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的DOM编程-正则表达式</title>
+		<!--正则表达式
+		1.正则表达式是什么?
+			正则表达式:Regular Experssion
+		2.正则表达式的作用?
+			正则表达式的作用:字符串格式匹配
+		3.常见的正则表达式符号
+			.	匹配除换行符以外的任意字符 
+			\w 	匹配字母或数字或下划线或汉字 
+			\s 	匹配任意的空白符 
+			\d 	匹配数字 
+			\b 	匹配单词的开始或结束 
+			^ 	匹配字符串的开始 
+			$ 	匹配字符串的结束
+			
+			* 		重复零次或更多次 
+			+ 		重复一次或更多次 
+			? 		重复零次或一次 
+			{n} 	重复n次 
+			{n,} 	重复n次或更多次 
+			{n,m} 	重复n到m次 
+			
+			\W 			匹配任意不是字母，数字，下划线，汉字的字符 
+			\S 			匹配任意不是空白符的字符 
+			\D 			匹配任意非数字的字符 
+			\B 			匹配不是单词开头或结束的位置 
+			[^x] 		匹配除了x以外的任意字符 
+			[^aeiou] 	匹配除了aeiou这几个字母以外的任意字符
+		4.怎么创建正则表达式对象?
+			*第一种创建方法:直接创建
+				var refExp = /pattern/flags;
+			*第二种创建方法:使用内置支持类RegExp
+				var refExp = new RegExp(pattern,"flags");
+			*关于flags的可取值
+				g	全文匹配
+				i	忽略大小写匹配
+				m	多行匹配(当pattern为普通字符串时才能使用m)
+		5.怎么调用正则表达式对象的方法?
+		
+		6.正则表达式对象中的test()方法
+			true / false = 正则表达式对象.test("字符串");
+			true:字符串格式匹配成功
+			false:字符串格式匹配失败
+		-->
+		<!--读懂正则表达式
+		1.QQ号的正则表达式:^[1-9][0-9]{4,}$
+		2.Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$
+		-->
+	</head>
+	<body>
+		<!--验证邮箱地址-->
+		<script type="text/javascript">
+			window.onload = function() {
+				//按钮绑定鼠标单击
+				document.getElementById("button").onclick = function() {
+					var retExp = new RegExp(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/, "g");
+					//var retExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g;
+					var retValue = retExp.test(document.getElementById("email").value);
+					if (retValue) {
+						document.getElementById("emailAccess").innerText = "邮箱地址合法";
+					} else {
+						document.getElementById("emailAccess").innerText = "邮箱地址不合法";
+					}
+				}
+				//文本框绑定获得焦点
+				document.getElementById("email").onfocus = function() {
+					document.getElementById("emailAccess").innerText = "";
+				}
+			}
+		</script>
+		<input type="text" id="email" />
+		<div style="color: #FF0000;font-size: 12px;" id="emailAccess"></div>
+		<input type="button" value="验证邮箱地址" id="button" />
+	</body>
+</html>

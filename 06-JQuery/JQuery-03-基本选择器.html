@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-基本选择器</title>
+		<!--css函数
+		1.css函数是JQuery对象的功能函数
+		2.css函数负责将JQuery对象的所有DOM对象的样式属性进行统一赋值
+		-->
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			function fun1(){
+				var $obj = $("#one");
+				$obj.css("background-color","red");
+			}
+			function fun2(){
+				var $obj = $(".two");
+				$obj.css("background-color","blue");
+			}
+			function fun3(){
+				var $obj = $("div");
+				$obj.css("background-color","green");
+			}
+			function fun4(){
+				var $obj = $("*");
+				$obj.css("background-color","yellow");
+			}
+			function fun5(){
+				var $obj = $("#one,span");
+				$obj.css("background-color","black");
+			}
+		</script>
+		<style type="text/css">
+			div {
+				background-color: gray;
+				width: 200px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--定义被选择对象-->
+		<div id="one" class="two"></div><br />
+		<div class="two"></div><br />
+		<div></div><br />
+		<span>我是span标签</span>
+		<!--定义按钮-->
+		<input type="button" id="btn01" value="选择id为one的元素" onclick="fun1()" />
+		<input type="button" id="btn02" value="选择class为two的元素" onclick="fun2()"/>
+		<input type="button" id="btn03" value="选择所有div元素" onclick="fun3()"/>
+		<input type="button" id="btn04" value="选择所有元素" onclick="fun4()"/>
+		<input type="button" id="btn05" value="选择id为one和所有span元素" onclick="fun5()"/>
+	</body>
+</html>

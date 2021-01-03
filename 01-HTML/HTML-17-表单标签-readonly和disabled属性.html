@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML表单的readonly和disabled</title>
+		<!--
+        	作者：934442950@qq.com
+        	时间：2020-07-07
+        	描述：
+        		1.提交数据:http://localhost:8080/oa/save?usercode=111
+        		2.readonly和disabled的异同
+        			*相同点:readonly和disabled的value都为只读
+        			*不同点:readonly可以提交给服务器,disabled不会提交给服务器
+        -->
+	</head>
+	<body>
+		<form action="http://localhost:8080/oa/save">
+			用户代码<input type="text" name="usercode" value="111" readonly/>
+			<br />
+			用户姓名<input type="text" name="username" value="111" disabled/>
+			<br />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

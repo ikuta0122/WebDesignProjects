@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的控制语句</title>
+		<!--JavaScript中的特有控制语句
+		1.for...in语句
+		2.with语句
+		-->
+	</head>
+	<body>
+		<script type="text/javascript">
+			//创建数组
+			//JS数组中的元素类型随意
+			var arr = [false, true, 1, "abc", 3.14];
+			//for循环遍历数组
+			for (var i = 0; i < arr.length; i++) {
+				alert(arr[i]);
+			}
+			//for...in语句遍历数组
+			for (var i in arr) {
+				alert(arr[i]);
+			}
+			//for...in语句遍历对象的属性
+			User = function(username, password) {
+				this.username = username;
+				this.password = password;
+			}
+			var u = new User("张三", "123");
+			for (var i in u) {
+				alert(u[i]);
+			}
+			//with语句访问对象的属性
+			with(u) {
+				alert(username + "," + u.password);
+			}
+		</script>
+	</body>
+</html>

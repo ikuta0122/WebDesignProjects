@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的DOM编程-显示网页时钟</title>
+		<!--JS中内置支持类:Date
+		1.Date类用户获取时间/日期
+		
+		-->
+	</head>
+	<body>
+		<script type="text/javascript">
+			//获取系统当前时间
+			var nowTime1 = new Date();
+			//转换成具有本地语言环境的日期格式
+			nowTime1 = nowTime1.toLocaleString();
+			document.write(nowTime1);
+
+			//换行
+			document.write("<br>");
+			document.write("<br>");
+
+			//自定义日期格式
+			var nowTime2 = new Date();
+			//返回年信息,以全格式返回
+			var myYear = nowTime2.getFullYear();
+			//返回月信息,月份是0-11
+			var myMonth = nowTime2.getMonth() + 1;
+			//返回日信息
+			var myDay = nowTime2.getDate();
+			document.write(myYear + "年" + myMonth + "月" + myDay + "日");
+
+			//换行
+			document.write("<br>");
+			document.write("<br>");
+
+			//重点:怎么获取毫秒数?(从1970年1月1日 00:00:00 000 到系统当前时间的总毫秒数)
+			//var nowTimeMill = nowTime2.getTime();
+			//document.write(nowTimeMill);
+			//一般会使用毫秒数当作事件处理
+			document.write(nowTime2.getTime());
+		</script>
+		
+		<script type="text/javascript">
+			function displayTime() {
+				var time = new Date();
+				var strTime = time.toLocaleString();
+				document.getElementById("timeDiv").innerHTML = strTime;
+			}
+			//每隔一秒调用displayTime()函数一次
+			function start(){
+				returnResult = window.setInterval("displayTime()",1000);
+			}
+			//停止setInterval()方法
+			function stop(){
+				window.clearInterval(returnResult);
+			}
+		</script>
+		<br><br><br>
+		<input type="button" value="显示系统时间" onclick="start()" />
+		<input type="button" value="停止系统时间" onclick="stop()" />
+		<div id="timeDiv"></div>
+	</body>
+</html>

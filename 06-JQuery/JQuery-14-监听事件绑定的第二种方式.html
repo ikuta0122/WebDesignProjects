@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JQuery-监听事件绑定的第二种方式</title>
+  <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+  <script>
+    function fun1() {
+      $(":button:lt(3)").bind("click", dealFun);
+    }
+
+    function fun2() {
+      $(":button:lt(2)").unbind("click");
+    }
+
+    function dealFun() {
+      var value = $(this).val();
+      alert("当前触发click事件的DOM对象对应的value为" + value);
+    }
+  </script>
+</head>
+<body>
+<input type="button" value="one"/>
+<input type="button" value="two"/>
+<input type="button" value="three"/>
+<br/>
+<input type="button" value="为前三个button绑定click事件" onclick="fun1()"/>
+<input type="button" value="为前二个button解除click事件" onclick="fun2()"/>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-复选框的全选和取消全选</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			function selectAll() {
+				//1.获得标题行checkbox的选中状态
+				var flag = $("#selectAllBtn").prop("checked");
+				//2.设置数据行checkbox的选中状态
+				$(".interest").prop("checked",flag);
+			}
+		</script>
+	</head>
+	<body>
+		<!--this表示触发当前事件的HTML元素对象-->
+		<input type="checkbox" id="selectAllBtn" onclick="selectAll()" /><br />
+		<input type="checkbox" class="interest" />吃<br />
+		<input type="checkbox" class="interest" />喝<br />
+		<input type="checkbox" class="interest" />玩<br />
+	</body>
+</html>

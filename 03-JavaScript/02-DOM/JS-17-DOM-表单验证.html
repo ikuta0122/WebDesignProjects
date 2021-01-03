@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的DOM编程-表单验证</title>
+		<!--表单验证
+		1.用户名不能为空
+		2.用户名必须在6-14位之间
+		3.用户名只能由数字和字母组成,不能含有其他符号
+		4.密码和确认密码一致
+		5.邮箱地址合法
+		5.统一失去焦点验证
+		6.错误提示信息同意在span标签中提示,并且要求字体12号,红色
+		7.文本框再次获得焦点后,清空错误提示信息
+		8.如果文本框中数据不合法要求清空文本框的value
+		9.最终表单中所有项均合法方可提交
+		-->
+
+		<!--错误提示信息同意在span标签中提示,并且要求字体12号,红色-->
+		<style type="text/css">
+			span {
+				font-size: 12px;
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById("username").onblur = function() {
+					//去除字符串前后空白
+					this.value = this.value.trim();
+
+					//用户名不能为空
+					if (this.value === "") {
+						document.getElementById("usernameError").innerText = "用户名不能为空";
+					} else {
+
+						//用户名必须在6-14位之间
+						if (this.value.length < 6 || this.value.length > 14) {
+							document.getElementById("usernameError").innerText = "用户名必须在6-14位之间";
+						} else {
+
+							//用户名只能由数字和字母组成,不能含有其他符号
+							var retExp = /^[A-Za-z0-9]+$/;
+							if (!retExp.test(this.value)) {
+								document.getElementById("usernameError").innerText = "用户名只能由数字和字母组成";
+							}
+						}
+					}
+				}
+
+				//密码和确认密码一致
+				document.getElementById("verifypwd").onblur = function() {
+					if (this.value != document.getElementById("password").value) {
+						document.getElementById("verifypwdError").innerText = "密码和确认密码不一致";
+					}
+				}
+
+				//邮箱地址合法
+				document.getElementById("email").onblur = function() {
+					var retExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+					if (!retExp.test(this.value)) {
+						document.getElementById("emailError").innerText = "邮箱地址不合法";
+					}
+				}
+
+				//文本框再次获得焦点后,清空错误提示信息
+				document.getElementById("username").onfocus = function() {
+					if (document.getElementById("usernameError").innerText != "") {
+						//如果文本框中数据不合法要求清空文本框的value
+						this.value = "";
+					}
+					document.getElementById("usernameError").innerText = "";
+				}
+				document.getElementById("verifypwd").onfocus = function() {
+					if (document.getElementById("verifypwdError").innerText != "") {
+						//如果文本框中数据不合法要求清空文本框的value
+						this.value = "";
+						document.getElementById("password").value = "";
+					}
+					document.getElementById("verifypwdError").innerText = "";
+				}
+				document.getElementById("email").onfocus = function() {
+					if (document.getElementById("emailError").innerText != "") {
+						//如果文本框中数据不合法要求清空文本框的value
+						this.value = "";
+					}
+					document.getElementById("emailError").innerText = "";
+				}
+
+				//最终表单中所有项均合法方可提交
+				document.getElementById("usersubmit").onclick = function() {
+					//触发username,verifypwd,email的blur事件用于测试信息是否填写
+					document.getElementById("username").focus();
+					document.getElementById("username").blur();
+					document.getElementById("verifypwd").focus();
+					document.getElementById("verifypwd").blur();
+					document.getElementById("email").focus();
+					document.getElementById("email").blur();
+					if (
+						document.getElementById("usernameError").innerText == "" &&
+						document.getElementById("verifypwdError").innerText == "" &&
+						document.getElementById("emailError").innerText == ""
+					) {
+						document.getElementById("register").submit();
+					} else {
+						alert("请填写全部信息后再提交");
+					}
+				}
+			}
+		</script>
+
+		<!--表单的method属性应当设置为post,此处为了验证提交功能设置为get-->
+		<form action="http://localhost:8080/oa/save" method="get" id="register">
+			<table>
+				<tr align="center">
+					<td>用户名</td>
+					<td><input type="text" name="username" id="username"></td>
+					<td><span id="usernameError"></span></td>
+				</tr>
+				<tr align="center">
+					<td>密码</td>
+					<td><input type="password" name="password" id="password"></td>
+				</tr>
+				<tr align="center">
+					<td>密码确认</td>
+					<td><input type="password" id="verifypwd"></td>
+					<td><span id="verifypwdError"></span></td>
+				</tr>
+				<tr align="center">
+					<td>邮箱</td>
+					<td><input type="text" name="email" id="email"></td>
+					<td><span id="emailError"></span></td>
+				</tr>
+				<tr align="center">
+					<td colspan="2">
+						<input type="reset" value="清空" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" value="提交" id="usersubmit" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

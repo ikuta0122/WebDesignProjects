@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-工作状态属性过滤器</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			//选择可用文本框并修改其值
+			function fun1(){
+				$(":text:enabled").val("hello,jquery");
+			}
+			//选择不可用文本框并修改其值
+			function fun2(){
+				$(":text:disabled").val("hello,jquery");
+			}
+			//选择复选框中被选中的元素
+			function fun3(){
+				$(":checkbox:checked").each(loop);
+			}
+			function loop(index,domObj){
+				alert("第" + (index + 1) +"个被选中的复选框的value:" + $(domObj).val());//
+				//alert("第" + (index + 1) +"个被选中的复选框的value:" + domObj.value);
+			}
+			//选择下拉列表中被选中的元素
+			function fun4(){
+				var value = $("#city>option:selected").val();
+				//var value = $("#city").val();
+				//结论:$("#city")=$("#city>option:selected")
+				alert("下拉列表的选中元素:" + value);
+			}
+		</script>
+	</head>
+	<body>
+		<!--定义文本框-->
+		文本01:<input type="text" id="text01" value="value01" /><br />
+		文本02:<input type="text" id="text02" value="value02" disabled /><br />
+		文本03:<input type="text" id="text03" value="value03" /><br />
+		文本04:<input type="text" id="text04" value="value04" disabled /><br />
+		<br />
+		<!--定义复选框-->
+		<input type="checkbox" name="interest" value="reading" checked />读书
+		<input type="checkbox" name="interest" value="food" />美食
+		<input type="checkbox" name="interest" value="travel" checked />旅游
+		<input type="checkbox" name="interest" value="music" />音乐
+		<input type="checkbox" name="interest" value="shopping" checked />购物
+		<br /><br />
+		<!--定义下拉列表-->
+		<select id="city">
+			<option value="bj" title="beijing" selected>北京</option>
+			<option value="sh" title="shanghai">上海</option>
+			<option value="gz" title="guangzhou">广州</option>
+			<option value="sz" title="shenzhen">深圳</option>
+			<option value="hz" title="hangzhou">杭州</option>
+		</select>
+		<br /><br />
+		<!--定义按钮-->
+		<button id="btn01" onclick="fun1()">选择可用文本框并修改其值</button>
+		<button id="btn02" onclick="fun2()">选择不可用文本框并修改其值</button>
+		<button id="btn03" onclick="fun3()">选择复选框中被选中的元素</button>
+		<button id="btn04" onclick="fun4()">选择下拉列表中被选中的元素</button>
+	</body>
+</html>

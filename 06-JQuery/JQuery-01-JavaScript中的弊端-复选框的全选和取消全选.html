@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>关于JavaScript中的DOM编程-复选框的全选和取消全选</title>
+</head>
+<body>
+<script type="text/javascript">
+  /*初始版本
+  window.onload = function() {
+    document.getElementById("allcheck").onclick = function() {
+      //根据name获取所有元素
+      var interests = document.getElementsByName("interest");
+      if (this.checked) {
+        //全选
+        for(var i in interests){
+          interests[i].checked = true;
+        }
+      } else {
+        //取消全选
+        for(var i in interests){
+          interests[i].checked = false;
+        }
+      }
+    }
+  }
+  */
+  window.onload = function () {
+    //获取第一个复选框对象
+    var firstChk = document.getElementById("allcheck");
+    //根据name获取所有元素
+    var interests = document.getElementsByName("interest");
+    //给第一个复选框对象绑定click事件
+    firstChk.onclick = function () {
+      for (var i = 0; i < interests.length; i++) {
+        interests[i].checked = firstChk.checked;
+      }
+    }
+
+    var count = interests.length;//总数量
+    //给每一个interest复选框绑定click事件
+    for (var i = 0; i < interests.length; i++) {
+      interests[i].onclick = function () {
+        var checkedCount = 0;//选中数量
+        //记录选中数量
+        for (var i = 0; i < interests.length; i++) {
+          if (interests[i].checked) {
+            checkedCount++;
+          }
+        }
+
+        firstChk.checked = (count == checkedCount);
+      }
+    }
+  }
+</script>
+<input type="checkbox" id="allcheck"/><br/>
+<input type="checkbox" value="唱" name="interest"/>唱<br/>
+<input type="checkbox" value="跳" name="interest"/>跳<br/>
+<input type="checkbox" value="rap" name="interest"/>rap<br/>
+</body>
+</html>

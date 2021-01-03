@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML文件使用SCHEMA约束必须先导入以下信息:
+<web-app xmlns="http://www.example.org/web-app_2_5"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.example.org/web-app_2_5 web-app_2_5.xsd"
+    version="2.5">
+    
+</web-app>
+-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/web-app_2_5"
+        xmlns:tns="http://www.example.org/web-app_2_5"
+        elementFormDefault="qualified">
+    <element name="web-app">
+        <complexType>
+            <choice minOccurs="0" maxOccurs="unbounded">
+                <element name="servlet">
+                    <complexType>
+                        <sequence>
+                            <element name="servlet-name"></element>
+                            <element name="servlet-class"></element>
+                        </sequence>
+                    </complexType>
+                </element>
+
+                <element name="servlet-mapping">
+                    <complexType>
+                        <sequence>
+                            <element name="servlet-name"></element>
+                            <element name="url-pattern"></element>
+                        </sequence>
+                    </complexType>
+                </element>
+
+                <element name="welcome-file-list">
+                    <complexType>
+                        <sequence>
+                            <element name="welcome-file" maxOccurs="unbounded"></element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </choice>
+            <attribute name="version" type="double" use="optional"></attribute>
+        </complexType>
+    </element>
+</schema>

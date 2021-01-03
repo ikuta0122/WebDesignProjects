@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的数据类型-Object类型</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*Object类型
+			1.Object类型是所有类型的超类,自定义类型默认继承Object类
+			2.Object类型的属性
+				*prototype属性		动态扩展类的属性和函数
+				*constructor属性
+			2.Object类型的函数
+				*toString()
+				*toLocaleString()
+				*valueOf()
+			3.怎么定义类?
+				*第一种方式
+					function 类名(形参){
+						
+					}
+				*第二种方式
+					类名 = function(形参){
+						
+					}
+			4.怎么创建对象?
+				new 构造方法名(实参);//构造方法名和类名一致
+			5.在JavaScript中,类的定义同时又是构造函数的定义
+				
+			*/
+			//情景:怎么理解类的定义
+			function Student() {
+				alert("Student...");
+			}
+			//当作普通函数调用
+			Student();
+			//当作类来创建对象
+			var stu = new Student();
+			alert(stu);
+			//[object Object]
+
+			//类的定义同时又是构造函数的定义
+			function User(sno, sname, sage) {
+				//声明属性
+				this.sno = sno;
+				this.sname = sname;
+				this.sage = sage;
+				//声明函数
+				this.getSage = function() {
+					return this.sage;
+				}
+			}
+
+			//创建对象
+			var u1 = new User(111, "张三", 20);
+
+			//访问对象的属性的第一种方式
+			alert(u1.sno);
+			alert(u1.sname);
+			alert(u1.sage);
+			//访问对象的属性的第二种方式
+			alert(u1["sno"]);
+			alert(u1["sname"]);
+			alert(u1["sage"]);
+
+			//调用类的方法
+			var age = u1.getSage();
+			alert(age);
+			//20
+
+			//通过prototype属性来动态扩展类User的属性和函数
+			User.prototype.getSname = function() {
+				return this.sname;
+			}
+			//调用后期扩展的函数
+			var name = u1.getSname();
+			alert(name);
+			//张三
+		</script>
+	</body>
+</html>
+<!--
+java怎么定义类?怎么创建对象?(强类型)
+public class User{
+	private String username;
+	private String password;
+	public User(){
+		super();
+	}
+	public User(username,password){
+		this.username = username;
+		this.password = password;
+	}
+}
+User user = new User();
+User user = new User("root","admin");
+
+JS怎么定义类?怎么创建对象?(弱类型)
+User = funtion(username,password){
+	this.username = username;
+	this.password = password;
+}
+User user = new User();
+User user = new User("root","admin");
+-->

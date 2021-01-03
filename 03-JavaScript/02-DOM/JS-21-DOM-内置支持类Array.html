@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的DOM编程-内置支持类Array</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//创建数组对象的第一种方式
+			var a1 = new Array();
+			document.write("数组a1长度:" + a1.length + "<br>" + "<br>");
+			//数组a1长度:0
+			var a2 = new Array(3);
+			document.write("数组a2长度:" + a2.length + "<br>" + "<br>");
+			//数组a2长度:3
+			var a3 = new Array(1, 2);
+			document.write("数组a3长度:" + a3.length + "<br>" + "<br>");
+			//数组a3长度:2
+
+			//创建数组对象的第二种方式(常用)
+			var arr = [1, 2, 3, false, "abc", 3.14];
+			document.write("数组arr长度:" + arr.length + "<br>" + "<br>");
+			//数组arr长度:6
+			//下标会越界吗?不会,JS中数组自动扩容
+			arr[6] = "test";
+			//遍历数组arr
+			for (var i = 0; i < arr.length; i++) {
+				document.write(arr[i] + "<br>");
+			}
+			/*结果
+			1
+			2
+			3
+			false
+			abc
+			3.14
+			undefined
+			test
+			*/
+			//Array类中的方法
+			//join()	连接数组
+			var strarr = arr.join("-");
+			document.write(strarr + "<br>");
+			//1-2-3-false-abc-3.14-test
+
+			//push()	在数组末尾添加一个元素
+			arr.push(10);
+			var strarr = arr.join("-");
+			document.write(strarr + "<br>");
+			//1-2-3-false-abc-3.14-test-10
+			
+			//pop()		将数组末尾的元素弹出(数组长度-1)
+			arr.pop();
+			var strarr = arr.join("-");
+			document.write(strarr + "<br>");
+			//1-2-3-false-abc-3.14-test
+			//注意:JS中的数组可以自动模拟栈数据结构:后进先出,先进后出
+			
+			//recerse()	数组反转
+			arr.reverse();
+			var strarr = arr.join("-");
+			document.write(strarr + "<br>");
+			//test-3.14-abc-false-3-2-1
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-监听事件绑定的第一种方式</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			window.onload = function(){
+				$(":button").click(fun1);
+			}
+			function fun1(){
+				//this代表触发click事件的DOM对象
+				var value = $(this).val();
+				alert("当前触发click事件的DOM对象对应的value为" + value);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="one" />
+		<input type="button" value="two" />
+		<input type="button" value="three" />
+	</body>
+</html>

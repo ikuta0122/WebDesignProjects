@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-功能函数-remove()和empty()</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			//大臣1满门抄斩
+			function fun1(){
+				$("#one").remove();
+			}
+			//大臣2断子绝孙
+			function fun2(){
+				$("#two").empty();
+			}
+		</script>
+	</head>
+	<body>
+		大臣1:
+		<select id="one">
+			<option>大儿子</option>
+			<option>二儿子</option>
+		</select>
+		大臣2:
+		<select id="two">
+			<option>大儿子</option>
+			<option>二儿子</option>
+		</select>
+		<input type="button" value="大臣1满门抄斩" onclick="fun1()" />
+		<input type="button" value="大臣2断子绝孙" onclick="fun2()" />
+	</body>
+</html>

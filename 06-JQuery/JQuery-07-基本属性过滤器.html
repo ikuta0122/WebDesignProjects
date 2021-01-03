@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-基本属性过滤器</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			//选择title属性手动赋值的div元素
+			function fun1(){
+				$("div[title]").css("background-color","red");
+			}
+			//选择title属性值为test的div元素
+			function fun2(){
+				$("div[title='test']").css("background-color","red");
+			}
+			//选择title属性值不为test的div元素
+			function fun3(){
+				$("div[title!='test']").css("background-color","red");
+			}
+			//选择title属性值以'te'开头的div元素
+			function fun4(){
+				$("div[title^='te']").css("background-color","red");
+			}
+			//选择title属性值以'st'结尾的div元素
+			function fun5(){
+				$("div[title$='st']").css("background-color","red");
+			}
+			//选择title属性值包含'es'的div元素
+			function fun6(){
+				$("div[title*='es']").css("background-color","red");
+			}
+			//选择title属性值包含'es'且具有id属性的div元素
+			function fun7(){
+				$("div[title*='es'][id]").css("background-color","red");
+			}
+			//选择title属性值包含'es'的第一个div元素
+			function fun8(){
+				$("div[title*='es']:first").css("background-color","red");
+			}
+		</script>
+		<style type="text/css">
+			div {
+				background-color: gray;
+				width: 200px;
+				height: 100px;
+			}
+
+			.son {
+				background-color: cyan;
+				width: 180px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--定义被选择对象-->
+		<div id="one" title="test">zero</div>
+		<div class="c02" title="myTest">one</div>
+		<div>
+			two
+			<div id="three" class="son">three</div>
+			<div title="test" class="son">four</div>
+		</div>
+		<div title="testCse">five</div>
+		<div>six</div>
+		<span>我是span标签</span>
+		<br /><br />
+		<!--定义按钮-->
+		<input type="button" id="btn01" value="选择title属性手动赋值的div元素" onclick="fun1()" />
+		<input type="button" id="btn02" value="选择title属性值为test的div元素" onclick="fun2()"/>
+		<input type="button" id="btn03" value="选择title属性值不为test的div元素" onclick="fun3()"/>
+		<input type="button" id="btn04" value="选择title属性值以'te'开头的div元素" onclick="fun4()"/>
+		<input type="button" id="btn05" value="选择title属性值以'st'结尾的div元素" onclick="fun5()"/>
+		<input type="button" id="btn06" value="选择title属性值包含'es'的div元素" onclick="fun6()"/>
+		<input type="button" id="btn07" value="选择title属性值包含'es'且具有id属性的div元素" onclick="fun7()"/>
+		<input type="button" id="btn07" value="选择title属性值包含'es'的第一个div元素" onclick="fun8()"/>
+	</body>
+</html>

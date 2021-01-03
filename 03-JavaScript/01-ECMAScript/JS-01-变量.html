@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的变量</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*回顾java中的变量
+			1.Java中怎么定义/声明变量?
+				数据类型 变量名;
+					*int i;
+			2.java中的变量怎么赋值?
+				变量名 = 值;
+					*"="运算符右边先执行,将右边的执行结果赋值给左边的变量
+			3.java语言是一种强类型语言,具有编译阶段
+				*强类型语言:变量在编译阶段确定数据类型后,该变量的数据类型不可变
+			*/
+			/*JavaScript中的变量
+			1.JavaScript中怎么定义/声明变量?
+				var 变量名;
+			2.JavaScript中的变量怎么赋值?
+				变量名 = 值;
+			3.JavaScript语言是一种弱类型语言,没有编译阶段
+				*弱类型语言:变量的数据类型可以改变,由"="运算符右边的值决定
+			4.JavaScript中,当变量没有手动赋值时,系统默认赋值"undefinded"
+			*/
+			//情景1:变量没有手动赋值
+			var i;
+			window.alert("i = " + i);
+			//i = undefined
+
+			//情景2:没有声明变量直接使用
+			//window.alert(age);
+			//语法错误:age is not defined
+			
+			//情景3:多个变量使用逗号同时声明
+			var a, b, c = 200;
+			window.alert("a = " + a); //a = undefined
+			window.alert("b = " + b); //b = undefined
+			window.alert("c = " + c); //c = 200
+			
+			//情景4:变量的数据类型可以转换
+			a = 1.2;
+			window.alert("a = " + a); //a = 1.2
+			a = false;
+			window.alert("a = " + a); //a = false
+		</script>
+	</body>
+</html>

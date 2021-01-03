@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    使用DTD文档前,必须将以下代码导入到目标文件:
+  <!DOCTYPE web-app SYSTEM "web-app_2_3.dtd">  
+-->
+<!--
+1.<!ELEMENT 标签类型名>
+        声明可以在XML文件中出现的[标签类型名]
+2.<!ELEMENT 标签类型名 属性名>
+        声明可以在当前标签内部出现的[属性名]  
+
+3.<!ELEMENT 标签类型名 (子标签名)>
+    *表示当前标签的子标签必须出现
+    *子标签的出现次数只能为1
+4.<!ELEMENT 标签类型名 (子标签名+)>
+    *表示当前标签的子标签必须出现
+    *子标签的出现次数只能为n
+
+5.<!ELEMENT 标签类型名 (子标签名?)>
+    *表示当前标签的子标签不必出现
+    *子标签的出现次数只能为1
+6.<!ELEMENT 标签类型名 (子标签名*)>
+    *表示当前标签的子标签不必出现
+    *子标签的出现次数只能为n
+
+7.<!ELEMENT 标签类型名 (#PCDATA)>
+    *表示当前标签没有子标签
+
+8.<!ELEMENT 标签类型名 (子标签名1|子标签名2)>
+    *表示当前标签的子标签1或者子标签2必须有1个出现
+-->
+<!--约束标签-->
+<!ELEMENT web-app (servlet*,servlet-mapping*,welcome-file-list?)>
+<!ELEMENT servlet (servlet-name,desription?,(servlet-class|jsp-file))>
+<!ELEMENT servlet-mapping (servlet-name,url-pattern)>
+<!ELEMENT welcome-file-list (welcome-file+)>
+<!ELEMENT servlet-name (#PCDATA)>
+<!ELEMENT desription (#PCDATA)>
+<!ELEMENT servlet-class (#PCDATA)>
+<!ELEMENT jsp-file (#PCDATA)>
+<!ELEMENT url-pattern (#PCDATA)>
+<!ELEMENT welcome-file (#PCDATA)>
+<!--约束属性-->
+<!ATTLIST web-app version CDATA #IMPLIED>

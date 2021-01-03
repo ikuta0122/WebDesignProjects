@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<!--
+Q1:获取bookstore节点下,book属性category值为web下的第二个title节点的文本内容
+路径:bookstore -> book[@category='web'][2] -> title
+XPATH路径:/bookstore/book[@category='web'][2]/title
+文本内容:/bookstore/book[@category='web'][2]/title/text()
+-->
+<!--
+Q2:获取bookstore节点下,book属性category值为web下,title属性lang为en的节点内容
+路径:bookstore -> book[@category='web'] -> title[@lang='en']
+XPATH路径:/bookstore/book[@category='web']/title[@lang='en']
+文本内容:/bookstore/book[@category='web']/title[@lang='en']/text()
+-->
+<!--
+Q3:获取bookstore节点下,book属性category值为cooking下的title的属性lang的值
+路径:bookstore -> book[@category='cooking'] -> title ->@lang
+XPATH路径:/bookstore/book[@category='cooking']/title/@lang
+-->
+<!--
+Q4:获取bookstore节点下所有book的节点集合
+XPATH路径:/bookstore/book
+-->
+<bookstore>
+	<book category="children">
+		<title lang="en">Harry Potter</title>
+		<author>J.K.Rowling</author>
+		<year>2005</year>
+		<price>29.99</price>
+	</book>
+	<book category="cooking">
+		<title lang="en">Everyday Italian</title>
+		<author>Giada De Laurentiis</author>
+		<year>2005</year>
+		<price>30.00</price>
+	</book>
+	<book category="web">
+		<title lang="en">Learning XML</title>
+		<author>Erik T.Ray</author>
+		<year>2003</year>
+		<price>39.95</price>
+	</book>
+	<book category="web">
+		<title lang="uk">XQuery Kick Start</title>
+		<author>James McGovern</author>
+		<year>2003</year>
+		<price>49.99</price>
+	</book>
+</bookstore>

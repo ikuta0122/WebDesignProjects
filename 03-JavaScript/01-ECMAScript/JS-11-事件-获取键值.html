@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的获取键值</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById("username").onkeydown = function(event) {
+					//获取键值
+					//对于键盘事件对象来说,都具有keyCode属性用来获取键值
+					//alert(event.keyCode);
+					//回车键值13,ESC键值27
+					if (event.keyCode === 13) {
+						alert("正在进行登陆");
+					}
+				}
+			}
+		</script>
+		<input type="text" id="username" />
+	</body>
+</html>

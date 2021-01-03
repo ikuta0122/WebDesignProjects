@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSON复杂现象</title>
+</head>
+<body>
+<script type="text/javascript">
+  //JSON对象的属性值可以任意类型
+  var user = {
+    "userCode": 110,
+    "username": "张三",
+    "sex": true,
+    "address": {"city": "北京", "street": "大兴区", "zipCode": "362200"},
+    "interest": ["sing", "dance", "rap"]
+  };
+
+  //访问人名及其居住城市
+  document.write(user.username + "居住在" + user.address.city);
+  document.write("<br>" + "<hr/>");
+  //设计JSON对象,可以描述班级中每一个学生的信息,以及总人数信息
+  var studentData = {
+    "count": 3,
+    "students": [
+      {"name": "张三", "id": 101},
+      {"name": "李四", "id": 102},
+      {"name": "王五", "id": 103},
+    ]
+  };
+  document.write(studentData.students[0].name + "的学号:" + studentData.students[0].id)
+</script>
+</body>
+</html>

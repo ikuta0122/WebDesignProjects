@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的代码执行顺序</title>
+	</head>
+	<!--精简后-->
+	<body>
+		<script type="text/javascript">
+			/*JS代码的执行顺序
+			页面加载过程中,回调函数A注册给load事件
+			页面加载完成后,load事件发生
+			当load事件发生时,执行回调函数A
+			回调函数A执行过程中,回调函数B注册给了click事件
+			当click事件发生时,执行回调函数B
+			*/
+			window.onload = function() { //假设这个回调函数为A
+				document.getElementById("mybutton").onclick = function() { //假设这个回调函数为B
+					alert("hello");
+				}
+			};
+		</script>
+		<input type="button" value="hello" id="mybutton" />
+	</body>
+	<!--精简前
+	load:页面全部元素加载完毕后才会发生
+	<body onload="ready()">
+		<script type="text/javascript">
+			function ready(){
+				document.getElementById("mybutton").onclick = function(){
+					alert("hello");
+				}
+			}
+		</script>
+		<input type="button" value="hello" id="mybutton" />
+	</body>
+	-->
+</html>

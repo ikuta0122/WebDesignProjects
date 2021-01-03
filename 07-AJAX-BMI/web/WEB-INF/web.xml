@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+    <welcome-file-list>
+        <welcome-file>index_bmi.jsp</welcome-file>
+        <welcome-file>index_bmiprint.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>BmiServlet</servlet-name>
+        <servlet-class>com.ikuta.controller.BmiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BmiServlet</servlet-name>
+        <url-pattern>/bmiServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BmiPrintServlet</servlet-name>
+        <servlet-class>com.ikuta.controller.BmiPrintServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BmiPrintServlet</servlet-name>
+        <url-pattern>/bmiPrintServlet</url-pattern>
+    </servlet-mapping>
+</web-app>

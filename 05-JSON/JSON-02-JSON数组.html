@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSON-初步认识</title>
+  <!--JSON
+  1.JSON是什么?
+    JavaScript Object Notation:JavaScript对象标记语言
+    *JSON是一种标准的轻量级数据交换格式的标记语言
+    *JSON也被称为"无类型对象"
+  2.JSON的作用?
+    JSON进行数据交换
+  3.JSON的特点?
+    3.1体积小
+    3.2易解析
+    *XML的特点:体积大,难解析,但是语法严谨
+  4.JSON的语法格式
+    var jsonObj = {
+      "属性名" :属性值,
+      "属性名" :属性值,
+      "属性名" :属性值,
+      ......
+    };
+  -->
+</head>
+<body>
+<script type="text/javascript">
+  //声明JSON数组
+  var students = [
+    {"sno": "101", "sname": "张三", "sex": "男"},
+    {"sno": "102", "sname": "李四", "sex": "男"},
+    {"sno": "103", "sname": "王五", "sex": "男"}
+  ];
+  //遍历JSON数组
+  for (var i = 0; i < students.length; i++) {
+    document.write(students[i].sno + "," + students[i].sname + "," + students[i].sex + "<br>");
+  }
+</script>
+</body>
+</html>

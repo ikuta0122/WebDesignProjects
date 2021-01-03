@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JQuery在表格中的应用-演示页</title>
+  <!--实现功能
+    1.全选与全不选的相互相应
+    2.鼠标悬停和鼠标经过的背景颜色改变
+    3.删除按钮的工作属性对应全部按钮
+	-->
+  <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+  <script>
+    //绑定监听事件
+    window.onload = function () {
+      $(":checkbox:first").bind("click", fun1);
+      $(":checkbox:gt(0)").bind("click", fun2);
+      $("table tr:gt(0)").bind("mouseover", fun3);
+      $("table tr:gt(0)").bind("mouseout", fun4);
+    }
+
+    //实现功能:全选和全不选-标题行影响数据行
+    function fun1() {
+      //1.获得标题行的选中状态
+      var flag = $(":checkbox:first").prop("checked");
+      //2.设置数据行的选中状态
+      $(":checkbox:gt(0)").prop("checked", flag);
+      //方法1中手动调用方法5,实现删除按钮
+      fun5();
+    }
+
+    //实现功能:全选和全不选-数据行影响标题行
+    function fun2() {
+      //1.获得数据行的个数
+      var allCount = $(":checkbox:gt(0)").length;
+      //2.获得数据行的被选中个数
+      var checkedCount = $(":checkbox:gt(0):checked").length;
+      //3.判断标题行的选中状态
+      $(":checkbox:first").prop("checked", allCount == checkedCount);
+      //方法2中手动调用方法5,实现删除按钮
+      fun5();
+    }
+
+    //实现功能:鼠标悬停-数据行背景颜色改变
+    function fun3() {
+      $(this).css("background-color", "red");
+    }
+
+    //实现功能:鼠标离开-数据行背景颜色改变
+    function fun4() {
+      $(this).css("background-color", "white");
+    }
+
+    //实现功能:删除功能-根据checkbox被选中个数
+    function fun5() {
+      //获得checkbox被选中个数
+      var checkedCount = $(":checkbox:gt(0):checked").length;
+      //根据checkbox被选中个数设置删除按钮是否可用
+      $(":button").prop("disabled", checkedCount == 0);
+    }
+  </script>
+</head>
+<body>
+<center>
+  <table border="2px">
+    <!--标题行-->
+    <tr>
+      <td>职员姓名</td>
+      <td>职员职位</td>
+      <td>职员工资</td>
+      <td>
+        <input type="checkbox"/>全选和全不选
+        <input type="button" value="删除" disabled/>
+      </td>
+    </tr>
+    <!--内容行-->
+    <tr>
+      <td>mike</td>
+      <td>初级工程师</td>
+      <td>10000</td>
+      <td>
+        <input type="checkbox"/>
+      </td>
+    </tr>
+    <tr>
+      <td>smith</td>
+      <td>中级工程师</td>
+      <td>20000</td>
+      <td>
+        <input type="checkbox"/>
+      </td>
+    </tr>
+    <tr>
+      <td>allen</td>
+      <td>高级工程师</td>
+      <td>40000</td>
+      <td>
+        <input type="checkbox"/>
+      </td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>

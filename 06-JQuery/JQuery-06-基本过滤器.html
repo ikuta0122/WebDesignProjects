@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-基本过滤器</title>
+		<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+		<script type="text/javascript">
+			//选择第一个div
+			function fun1() {
+				var $obj = $("div:first");
+				$obj.css("background-color", "red");
+			}
+			//选择最后一个div
+			function fun2() {
+				var $obj = $("div:last");
+				$obj.css("background-color", "red");
+			}
+			//选择id不是one的div
+			function fun3() {
+				var $obj = $("div[id!='one']");
+				$obj.css("background-color", "green");
+			}
+			//选择class不包含02的div
+			function fun4() {
+				var $obj = $("div:not(div[class*='02'])");
+				$obj.css("background-color", "green");
+			}
+			//选择索引号为奇数的div
+			function fun5() {
+				var $obj = $("div:odd");
+				$obj.css("background-color", "yellow");
+			}
+			//选择索引号为偶数的div
+			function fun6() {
+				var $obj = $("div:even");
+				$obj.css("background-color", "yellow");
+			}
+			//选择索引号等于3的div
+			function fun7() {
+				var $obj = $("div:eq(3)");
+				$obj.css("background-color", "blue");
+			}
+			//选择索引号小于3的div
+			function fun8() {
+				var $obj = $("div:lt(3)");
+				$obj.css("background-color", "blue");
+			}
+			//选择索引号大于3的div
+			function fun9() {
+				var $obj = $("div:gt(3)");
+				$obj.css("background-color", "blue");
+			}
+			//选择所有标题元素
+			function fun10() {
+				var $obj = $("*");
+				$obj.css("background-color", "black");
+			}
+		</script>
+		<style type="text/css">
+			div {
+				background-color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<!--定义被选择对象-->
+		<h2>以下是div</h2>
+		<div id="one">我的序号是0</div>
+		<div id="two" class="c02">我的序号是1</div>
+		<div>
+			我的序号是2
+			<div class="son">我的序号是3</div>
+			<div class="son">我的序号是4</div>
+		</div>
+		<div>我的序号是5</div>
+		<h2>以下是span</h2>
+		<span>我是span标签</span>
+		<br /><br />
+		<!--定义按钮-->
+		<input type="button" id="btn01" value="选择第一个div" onclick="fun1()" /><br />
+		<input type="button" id="btn02" value="选择最后一个div" onclick="fun2()" /><br />
+		<input type="button" id="btn03" value="选择id不是one的div" onclick="fun3()" /><br />
+		<input type="button" id="btn04" value="选择class不包含02的div" onclick="fun4()" /><br />
+		<input type="button" id="btn05" value="选择索引号为奇数的div" onclick="fun5()" /><br />
+		<input type="button" id="btn06" value="选择索引号为偶数的div" onclick="fun6()" /><br />
+		<input type="button" id="btn07" value="选择索引号等于3的div" onclick="fun7()" /><br />
+		<input type="button" id="btn08" value="选择索引号小于3的div" onclick="fun8()" /><br />
+		<input type="button" id="btn09" value="选择索引号大于3的div" onclick="fun9()" /><br />
+		<input type="button" id="btn10" value="选择所有标题元素" onclick="fun10()" /><br />
+	</body>
+</html>

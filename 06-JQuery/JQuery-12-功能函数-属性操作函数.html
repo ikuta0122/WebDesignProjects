@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery-功能函数-属性操作函数</title>
+		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+		<script>
+			function fun1() {
+				var $option = $("#city>option:selected");
+				alert("value = " + $option.val());
+				alert("selected = " + $option.prop("selected"));
+				alert("title = " + $option.attr("title"));
+				alert("text = " + $option.text());
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			<select id="city" onchange="fun1()">
+				<option value="bj" title="beijing" selected>北京</option>
+				<option value="sh" title="shanghai">上海</option>
+				<option value="gz" title="guangzhou">广州</option>
+				<option value="sz" title="shenzhen">深圳</option>
+				<option value="hz" title="hangzhou">杭州</option>
+			</select>
+		</center>
+	</body>
+</html>

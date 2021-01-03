@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关于JavaScript中的BOM编程-弹出消息框和确认框</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function del() {
+				if(window.confirm("确定删除数据")){
+					alert("正在删除");
+				}else{
+					alert("取消删除");
+				}
+			}
+		</script>
+		<!--弹出消息框-->
+		<input type="button" value="弹出消息框" onclick="window.alert('消息框')" />
+		<!--弹出确认框-->
+		<input type="button" value="弹出确认框(删除)" onclick="del();" />
+	</body>
+</html>
